@@ -1,4 +1,4 @@
-package lesson3.lecture.inheritance2;
+package com.yuliang.tutorial.mum.mpp.lesson3.lecture.inheritance2;
 
 public class Main {
 

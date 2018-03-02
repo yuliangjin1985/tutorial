@@ -1,10 +1,12 @@
-package prob4E;
+package com.yuliang.tutorial.mum.mpp.lesson4.assignment.prob4E;
 
 import java.util.List;
 
 public class Admin {
 	public static double computeUpdatedBalanceSum(List<Employee> list) {
 		//implement
-		return 0.0;
+		return list.stream()
+				.map(employee -> employee.computeUpdatedBalanceSum())
+				.reduce(0.0, Double::sum);
 	}
 }

@@ -1,4 +1,4 @@
-package lesson3.lecture.inheritance1;
+package com.yuliang.tutorial.mum.mpp.lesson3.lecture.inheritance1;
 
 import java.util.AbstractList;
 import java.util.List;

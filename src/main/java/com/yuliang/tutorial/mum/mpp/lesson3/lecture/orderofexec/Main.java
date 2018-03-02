@@ -1,4 +1,4 @@
-package lesson3.lecture.orderofexec;
+package com.yuliang.tutorial.mum.mpp.lesson3.lecture.orderofexec;
 
 public class Main {
 

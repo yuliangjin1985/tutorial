@@ -1,4 +1,4 @@
-package lesson3.lecture.composition1;
+package com.yuliang.tutorial.mum.mpp.lesson3.lecture.composition1;
 
 public class PersonWithJob  {
 	

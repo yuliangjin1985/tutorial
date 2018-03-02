@@ -1,4 +1,4 @@
-package com.yuliang.tutorial.sort;
+package com.yuliang.tutorial.basic.sort;
 
 /**
  * Created by 靳玉亮 (530367387@qq.com) on 17/10/24.

@@ -1,7 +1,8 @@
 package com.yuliang.tutorial.mum.mpp.lesson2.assignment.prob2A.ext;
 
-import prob2A.GradeReport;
-import prob2A.Student;
+
+import com.yuliang.tutorial.mum.mpp.lesson2.assignment.prob2A.GradeReport;
+import com.yuliang.tutorial.mum.mpp.lesson2.assignment.prob2A.Student;
 
 public class MainClass {
     public static void main(String[] args) {

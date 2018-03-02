@@ -1,4 +1,4 @@
-package lesson3.lecture.inheritance3;
+package com.yuliang.tutorial.mum.mpp.lesson3.lecture.inheritance3;
 
 import java.util.Collection;
 import java.util.HashSet;
@@ -14,6 +14,7 @@ public class ExtendedHashSet<T> extends HashSet<T> {
 	@Override
 	public boolean add(T a) {
 		addCount++;
+		System.out.println("add " + a);
 		return super.add(a);
 	}
 	@Override

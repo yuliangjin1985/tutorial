@@ -1,4 +1,4 @@
-package lesson3.lecture.polymorphism1;
+package com.yuliang.tutorial.mum.mpp.lesson3.lecture.polymorphism1;
 
 class Manager extends Employee {
 	public Manager(String name, double salary) {

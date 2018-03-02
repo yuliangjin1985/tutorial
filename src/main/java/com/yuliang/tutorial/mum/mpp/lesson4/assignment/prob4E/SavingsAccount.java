@@ -1,6 +1,6 @@
 package com.yuliang.tutorial.mum.mpp.lesson4.assignment.prob4E;
 
-public class SavingAccount extends Account{
+public class SavingsAccount extends Account{
 
     private double interestRate;
 
@@ -13,7 +13,7 @@ public class SavingAccount extends Account{
         this.interestRate = interestRate;
     }
 
-    public SavingAccount(String accountId, double balance, double interestRate) {
+    public SavingsAccount(String accountId, double interestRate, double balance) {
         super(accountId, balance);
         this.interestRate = interestRate;
     }

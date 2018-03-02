@@ -1,4 +1,4 @@
-package lesson3.lecture.inheritance3;
+package com.yuliang.tutorial.mum.mpp.lesson3.lecture.inheritance3;
 
 import java.util.Arrays;
 

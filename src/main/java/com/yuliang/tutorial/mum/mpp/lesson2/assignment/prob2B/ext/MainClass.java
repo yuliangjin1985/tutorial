@@ -1,6 +1,7 @@
 package com.yuliang.tutorial.mum.mpp.lesson2.assignment.prob2B.ext;
 
-import prob2B.Order;
+
+import com.yuliang.tutorial.mum.mpp.lesson2.assignment.prob2B.Order;
 
 public class MainClass {
     public static void main(String[] args) {

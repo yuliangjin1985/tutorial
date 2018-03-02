@@ -1,4 +1,4 @@
-package lesson3.lecture.composition1.oldinheritanceway;
+package com.yuliang.tutorial.mum.mpp.lesson3.lecture.composition1.oldinheritanceway;
 
 public class PersonWithJob extends Person {
 	private double salary;

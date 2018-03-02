@@ -1,4 +1,4 @@
-package lesson3.lecture.stacklinkedlist;
+package com.yuliang.tutorial.mum.mpp.lesson3.lecture.stacklinkedlist;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package lesson3.lecture.polymorphism2;
+package com.yuliang.tutorial.mum.mpp.lesson3.lecture.polymorphism2;
 
 import java.util.*;
 

@@ -1,9 +1,19 @@
 package com.yuliang.tutorial.mum.mpp.lesson2.assignment.prob4;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 //Class to create the necessary instances.
 public class StudentSectionFactory {
+
+    static List<Student> studentList = new ArrayList<>();
+    static List<Section> sections = new ArrayList<>();
+
+    public static List<Student> getStudents() {
+        return Collections.unmodifiableList(studentList);
+    }
+    //Todo: getSections
 
     public Section createSection(int secNum, String courseName) {
         Section section = new Section();
