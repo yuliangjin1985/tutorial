@@ -4,7 +4,11 @@ public abstract class Employee {
 
     private String employeeId;
 
-    public Paycheck calcCompensation(int month,int year) {
+    public Employee(String employeeId) {
+        this.employeeId = employeeId;
+    }
+
+    public Paycheck calcCompensation(int month, int year) {
         double grossPay = this.calcGrossPay(month, year);
         return new Paycheck(grossPay, TaxEnum.FICA.getValue() * grossPay, grossPay*TaxEnum.STATE_TAX.getValue(),
                 grossPay*TaxEnum.LOCAL_TAX.getValue(), grossPay*TaxEnum.MEDICARE.getValue(),

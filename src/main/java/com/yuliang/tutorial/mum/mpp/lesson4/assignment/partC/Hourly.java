@@ -27,7 +27,8 @@ public class Hourly extends Employee{
         this.hoursPerWeek = hoursPerWeek;
     }
 
-    public Hourly(double hourlyWage, int hoursPerWeek) {
+    public Hourly(String empId, double hourlyWage, int hoursPerWeek) {
+        super(empId);
         this.hourlyWage = hourlyWage;
         this.hoursPerWeek = hoursPerWeek;
     }
