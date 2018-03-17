@@ -16,7 +16,15 @@ public class EmployeeInfoBetter {
 			Collections.sort(emps, Comparator.comparing(byName).thenComparing(bySalary));
 		} else {
 			Collections.sort(emps, Comparator.comparing(bySalary).thenComparing(byName));
-		}			
+		}
+	}
+
+	public void sort1(List<Employee> emps, final SortMethod method) {
+		if(method == SortMethod.BYNAME) {
+			Collections.sort(emps, (e1, e2) -> e1.name.compareTo(e2.name));
+		} else {
+			Collections.sort(emps, Comparator.comparing(bySalary).thenComparing(byName));
+		}
 	}
 	
 	
@@ -33,6 +41,6 @@ public class EmployeeInfoBetter {
 		System.out.println(emps);
 		//same instance
 		ei.sort(emps, SortMethod.BYSALARY);
-		//System.out.println(emps);
+		System.out.println(emps);
 	}
 }
