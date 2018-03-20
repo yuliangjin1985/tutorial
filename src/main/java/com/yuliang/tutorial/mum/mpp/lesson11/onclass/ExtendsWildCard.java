@@ -3,7 +3,7 @@ package com.yuliang.tutorial.mum.mpp.lesson11.onclass;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Test {
+public class ExtendsWildCard {
 
     public static void main(String[] args) {
         List<Integer> ints = new ArrayList<Integer>();
