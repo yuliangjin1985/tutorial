@@ -5,7 +5,7 @@
 When the extends wild card used to define a parameterized type, the type can not be used to add elements(The exception is null).
 List<? extends Number> nums = ints; nums is defined to be a List that accepts subtypes of Number, but which subtype is not determined.
 
-```
+```java
 public static void main(String[] args) {
            List<Integer> ints = new ArrayList<Integer>();
            ints.add(1);
@@ -23,7 +23,7 @@ public static void main(String[] args) {
 #### ? super wildcard
 Elements can be gotten, but not typed.
 
-```
+```java
 public class SuperWildCard {
 
     public static void main(String[] args) {
