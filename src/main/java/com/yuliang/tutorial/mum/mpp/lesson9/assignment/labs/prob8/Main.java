@@ -30,7 +30,7 @@ public class Main {
 
 		for (Optional<OrderItem> item : orderItems) {
 			if (item.flatMap(i-> Optional.ofNullable(i.getProduct()))
-                    .flatMap(product -> product.get().getProductName())
+                    .flatMap(product -> product.getProductName())
 					.orElse("")
 					.equals(prodName)
 					) {
@@ -42,7 +42,7 @@ public class Main {
 	
 	private void loadOrderItemData() {
 		orderItems.add(Optional.empty());
-//		orderItems.add(Optional.of(new OrderItem(null, 3)));//This will still throw NPI.
+		orderItems.add(Optional.of(new OrderItem(null, 3)));
 		orderItems.add(Optional.of(new OrderItem(new Product("1015", "", 131.00), 3)));
 		orderItems.add(Optional.of(new OrderItem(new Product("1016", "Tools", 131.00), 3)));
 		orderItems.add(Optional.of(new OrderItem(new Product("1017", "Fishing Rod", 111.00), 1)));

@@ -10,14 +10,14 @@ public class OrderItem {
 	OrderItem(Product product, int quantity) {
 		this.product = product;
 		this.quantityRequested = quantity;
-		totalPrice = product.getUnitPrice() * quantity;
+		totalPrice = (product != null) ?product.getUnitPrice() * quantity : 0;
 	}
 	@Override
 	public String toString() {
 		return "   " + product.getProductId() + ": " + quantityRequested + ", " + product.getUnitPrice();
 	}
-	public Optional<Product> getProduct() {
-		return Optional.of(product);
+	public Product getProduct() {
+		return product;
 	}
 	public int getQuantityRequested() {
 		return quantityRequested;

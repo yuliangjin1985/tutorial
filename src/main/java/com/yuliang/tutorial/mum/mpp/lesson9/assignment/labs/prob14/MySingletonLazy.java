@@ -6,8 +6,11 @@ public class MySingletonLazy {
 
     private static MySingletonLazy instance = null;
 
+    private int counter = 0;
+
 
     private MySingletonLazy get() {
+        counter++;
         instance = new MySingletonLazy();
         return instance;
     }
@@ -20,6 +23,11 @@ public class MySingletonLazy {
 //    }
 
     public MySingletonLazy getInstance() {
+        System.out.println("Test");
         return Optional.ofNullable(instance).orElseGet(this::get);
+    }
+
+    public static void main(String[] args) {
+        MySingletonLazy mySingletonLazy = new MySingletonLazy().getInstance();
     }
 }

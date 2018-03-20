@@ -10,7 +10,7 @@ import java.util.stream.Stream;
 public class Test {
 
     public static void main(String[] args) {
-        new Test().printSquares(9);
+//        new Test().printSquares(9);
 
         List<List<Integer>> original = Arrays.asList(
                 Arrays.asList(2,3,5),
@@ -21,6 +21,10 @@ public class Test {
 
         );
 
+        List<Integer> integerList = original.stream()
+                .flatMap(row -> row.stream())
+                .collect(Collectors.toList());
+
         List<List<Integer>> original1 = Arrays.asList(
                 Arrays.asList(20,30,50),
                 Arrays.asList(200,300,500,800)
@@ -28,11 +32,16 @@ public class Test {
         );
 
         int[][][] array = {{{1,2}, {3,4}}, {{5,6}},{{7,8}}};
-//        for (int[][] ints : array) {
-//            for (int[] anInt : ints) {
-//                System.out.println(anInt);
-//            }
-//        }
+        int[][] array1 = {{1,2}, {3,4}};
+
+        Arrays.stream(array1)
+                .flatMapToInt(row -> Arrays.stream(row))
+                .toArray();
+
+        Arrays.stream(array1)
+                .flatMapToInt(row -> Arrays.stream(row))
+                .forEach(System.out::println);
+
 
         int[] ints = flatArrays(array);
         Arrays.stream(ints).forEach(x -> System.out.println("ints: " + x));
