@@ -11,10 +11,9 @@ public class Test {
         ints.add(2);
         List<? extends Number> nums = ints;
 
-//        nums.add(3);
-        //Compile error
-        //Because when the extends wild card used to define a parameterized type, the type
-        //can not be used to add elements.
+//        nums.add(3); //Compile error
+//
+//        nums.add(4.5); //Compile error
 
         nums.add(null); //Only null could be added
     }
