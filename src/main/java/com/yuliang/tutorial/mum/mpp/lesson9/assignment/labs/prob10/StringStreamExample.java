@@ -1,6 +1,7 @@
 package com.yuliang.tutorial.mum.mpp.lesson9.assignment.labs.prob10;
 
 import java.util.Comparator;
+import java.util.IntSummaryStatistics;
 import java.util.Random;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -16,6 +17,8 @@ public class StringStreamExample {
         Comparator<Integer> intComparator = (a, b) -> a - b;
 
 //        System.out.println(myIntStream.max().orElse(Integer.MIN_VALUE));
-        System.out.println(myIntStream.summaryStatistics());
+        IntSummaryStatistics intSummaryStatistics = myIntStream.summaryStatistics();
+        System.out.println(intSummaryStatistics.getMin());
+        System.out.println(intSummaryStatistics.getMax());
     }
 }

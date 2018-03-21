@@ -1,5 +1,7 @@
 package com.yuliang.tutorial.mum.mpp.lesson9.assignment.labs.prob7;
 
+import com.yuliang.tutorial.mum.mpp.lesson7.assignment.labs.prob1.partC.Employee;
+
 import java.util.*;
 import java.util.function.*;
 import java.util.stream.Collectors;
@@ -13,7 +15,13 @@ public class Main {
 		List<String> stringList = Arrays.asList("cba", "efg", "doe", "fie", "set");
 		//expected output: [cba, fie, doe, efg, set]
 		ordering2(stringList);
-		
+
+		ArrayList<Employee> employees = new ArrayList<>();
+		employees.add(new Employee("jim", 50000));
+		employees.add(new Employee("jim", 60000));
+		employees.add(new Employee("tim", 60000));
+		ordering3(employees);
+
 	}
 	
 	//Orders the integers according to this pattern:
@@ -25,10 +33,13 @@ public class Main {
 	static Comparator<String> stringReverseComparator = (a, b) -> new StringBuilder(a).reverse().toString().compareTo(new StringBuilder(b).reverse().toString());
 
 	public static void ordering1(List<Integer> list) {
-
 		list.stream()
                 .sorted(integerComparator1.thenComparing(integerComparator2))
-				.forEach(System.out::println);
+				.forEach(System.out::print);
+		System.out.println();
+		list.stream()
+				.sorted(Comparator.comparing((Integer a) -> Math.abs(a)).thenComparing((Integer a) -> a))
+                .forEach(System.out::print);
 	}
 	
 	//Orders words by first reversing each and comparing 
@@ -40,9 +51,17 @@ public class Main {
 	//Using this ordering, this method sorts the list as part of 
 	//a stream pipeline, and prints to the console
 	public static void ordering2(List<String> words) {
+		System.out.println();
 		System.out.println(words.stream()
 		.sorted(stringReverseComparator)
 		.collect(Collectors.toList()));
+	}
+
+	public static void ordering3(List<Employee> employees) {
+		employees.stream()
+				.sorted(Comparator.comparing((Employee e) -> e.getName()).thenComparing((Employee e) -> e.getSalary()).reversed()) //Here the reversed() will reverse both the name and salary order.
+                .sorted(Comparator.comparing((Employee e) -> e.getName()).thenComparing(Comparator.comparing((Employee::getSalary)).reversed()))
+				.forEach(System.out::println);
 	}
 
 }
