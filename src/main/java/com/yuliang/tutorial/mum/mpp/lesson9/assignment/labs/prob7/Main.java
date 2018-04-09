@@ -21,6 +21,8 @@ public class Main {
 		employees.add(new Employee("jim", 60000));
 		employees.add(new Employee("tim", 60000));
 		ordering3(employees);
+		testOptionalWithoutNPE();
+
 
 	}
 	
@@ -62,6 +64,29 @@ public class Main {
 				.sorted(Comparator.comparing((Employee e) -> e.getName()).thenComparing((Employee e) -> e.getSalary()).reversed()) //Here the reversed() will reverse both the name and salary order.
                 .sorted(Comparator.comparing((Employee e) -> e.getName()).thenComparing(Comparator.comparing((Employee::getSalary)).reversed()))
 				.forEach(System.out::println);
+	}
+
+	public static void testOptional() {
+		ArrayList<String> strings = new ArrayList<>();
+		strings.add(null);
+
+		Optional<String> first = strings.stream()
+				.findFirst();
+
+		String s = first.isPresent() ? first.get() : "Not found";
+		System.out.println(s + "hello world");
+	}
+
+	public static void testOptionalWithoutNPE() {
+		ArrayList<String> strings = new ArrayList<>();
+		strings.add(null);
+
+		Optional<String> first = strings.stream()
+				.filter(Objects::nonNull) //Filter out all the null values, so that findFirst will not have NPE.
+				.findFirst();
+
+		String s = first.isPresent() ? first.get() : "Not found";
+		System.out.println(s);
 	}
 
 }
