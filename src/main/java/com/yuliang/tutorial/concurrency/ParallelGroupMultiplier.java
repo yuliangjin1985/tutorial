@@ -11,6 +11,7 @@ public class ParallelGroupMultiplier {
         List<Thread> threads = new ArrayList<>();
 
         int numThreads = Runtime.getRuntime().availableProcessors();
+        System.out.println("Thread num is: " + numThreads);
         int rows1=matrix1.length;
         int startIndex, endIndex, step;
         step=rows1 / numThreads;
