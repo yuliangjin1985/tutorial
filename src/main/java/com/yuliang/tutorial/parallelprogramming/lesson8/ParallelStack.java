@@ -38,5 +38,11 @@ public class ParallelStack<E> {
         }
 
         System.out.println(parallelStack.pop());
+        parallelStack.clear();
+        System.out.println(parallelStack.pop());
+
+//        Runnable runnable = () -> {
+//            parallelStack.push();
+//        };
     }
 }
