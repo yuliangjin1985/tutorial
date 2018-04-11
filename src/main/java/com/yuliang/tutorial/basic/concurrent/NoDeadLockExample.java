@@ -7,21 +7,21 @@ package com.yuliang.tutorial.basic.concurrent;
  * 获取锁b，然后进入休眠。当第一个线程从休眠中醒来尝试获取锁b时，发现锁b被第二个线程占有，导致第一个线程死锁。同样，
  * 第二个线程也因为获取不到锁a也进入死锁。
  */
-public class DeadLockExample {
+public class NoDeadLockExample {
 
   public static void main(String[] args) {
     for(int i = 0; i < 1; i++) {
-      new Thread(new SyncRunnable(1, 2)).start();
-      new Thread(new SyncRunnable(2,1)).start();
+      new Thread(new SyncRunnableNew(1, 2)).start();
+      new Thread(new SyncRunnableNew(2,1)).start();
     }
   }
 
 }
 
-class SyncRunnable implements Runnable {
+class SyncRunnableNew implements Runnable {
   int a, b;
 
-  public SyncRunnable(int a, int b) {
+  public SyncRunnableNew(int a, int b) {
     this.a = a;
     this.b = b;
   }

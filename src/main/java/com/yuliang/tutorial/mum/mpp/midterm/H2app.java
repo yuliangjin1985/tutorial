@@ -8,7 +8,7 @@ import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
-import javafx.scene.layout.HBoxBuilder;
+//import javafx.scene.layout.HBoxBuilder;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -37,13 +37,13 @@ public class H2app extends Application{
 
         VBox layout = new VBox(10);
         layout.setStyle("-fx-background-color: cornsilk; -fx-padding: 15;");
-        layout.getChildren().setAll(
-                HBoxBuilder.create().spacing(10).children(
-                        fetchNames,
-                        clearNameList
-                ).build(),
-                nameView
-        );
+//        layout.getChildren().setAll(
+//                HBoxBuilder.create().spacing(10).children(
+//                        fetchNames,
+//                        clearNameList
+//                ).build(),
+//                nameView
+//        );
         layout.setPrefHeight(200);
 
         stage.setScene(new Scene(layout));
