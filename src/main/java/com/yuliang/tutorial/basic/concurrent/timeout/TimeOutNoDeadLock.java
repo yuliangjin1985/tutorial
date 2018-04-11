@@ -87,7 +87,7 @@ class ThreadA implements Runnable {
                     lock1.unlock();
                     System.out.println("ThreadA releases lock1");
                     try {
-                        Thread.sleep(new Random().nextInt());
+                        Thread.sleep(new Random().nextInt(500));
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -96,7 +96,7 @@ class ThreadA implements Runnable {
                     lock2.unlock();
                     System.out.println("ThreadA releases lock2");
                     try {
-                        Thread.sleep(new Random().nextInt());
+                        Thread.sleep(new Random().nextInt(500));
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -130,14 +130,14 @@ class ThreadB implements Runnable {
             try {
                 secondLockRequired = lock2.tryLock(100, TimeUnit.MILLISECONDS);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                System.out.println("Lock2 was not acquired.");
             }
             System.out.println(Thread.currentThread().getName() + "acquires the second lock.");
 
             try {
                 firstLockRequired = lock1.tryLock(100, TimeUnit.MILLISECONDS);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                System.out.println("Lock2 was not acquired.");
             }
             if(firstLockRequired && secondLockRequired) {
                 if(!stack.empty()) {
@@ -147,21 +147,26 @@ class ThreadB implements Runnable {
                 isDone = true;
                 lock1.unlock();
                 lock2.unlock();
+                System.out.println("Both two locks are released after operation");
             } else {
                 if(firstLockRequired) {
                     lock1.unlock();
-                    System.out.println("ThreadA releases lock1");
+                    System.out.println("ThreadB releases lock1 because lock2 was not acquired.");
                     try {
-                        Thread.sleep(new Random().nextInt());
+                        int timeout = new Random().nextInt(500);
+                        if(timeout < 0) {
+                            System.out.println("Negative timeout value: " + timeout);
+                        }
+                        Thread.sleep(timeout);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
                 }
                 if(secondLockRequired) {
                     lock2.unlock();
-                    System.out.println("ThreadA releases lock2");
+                    System.out.println("ThreadB releases lock2 because lock1 was not acquired");
                     try {
-                        Thread.sleep(new Random().nextInt());
+                        Thread.sleep(new Random().nextInt(500));
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
