@@ -1,5 +1,8 @@
 package com.yuliang.tutorial.parallelprogramming.lesson8;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ParallelStack<E> {
 
     private static int initSize = 200;
@@ -32,17 +35,55 @@ public class ParallelStack<E> {
     }
 
     public static void main(String[] args) {
-        ParallelStack parallelStack = new ParallelStack();
-        for(int i=0;i<200;i++) {
-            parallelStack.push(2 * i);
+        List<Thread> threadList = new ArrayList<>();
+        ParallelStack<Integer> stack = new ParallelStack<>();
+        ThreadA a = new ThreadA(stack);
+        ThreadA b = new ThreadA(stack);
+        ThreadA c = new ThreadA(stack);
+
+        threadList.add(new Thread(a));
+        threadList.add(new Thread(b));
+        threadList.add(new Thread(c));
+
+        for (Thread thread : threadList) {
+            thread.start();
         }
 
-        System.out.println(parallelStack.pop());
-        parallelStack.clear();
-        System.out.println(parallelStack.pop());
+        for (Thread thread : threadList) {
+            try {
+                thread.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
 
-//        Runnable runnable = () -> {
-//            parallelStack.push();
-//        };
+        System.out.println(stack.top);
+    }
+}
+
+class ThreadA implements Runnable {
+
+
+    private ParallelStack<Integer> stack;
+
+    public ThreadA(ParallelStack<Integer> stack) {
+        this.stack = stack;
+    }
+
+    @Override
+    public void run() {
+        for(int i=0;i<50;i++) {
+
+            stack.push(i);
+            System.out.println("Push a number: " + i);
+            try {
+                Thread.sleep(50);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            Integer integer = stack.pop();
+            System.out.println("Pop a number: " + integer);
+        }
     }
 }
