@@ -1,4 +1,4 @@
-package com.yuliang.tutorial.concurrency;
+package com.yuliang.tutorial.mum.parallelprogramming.part1;
 
 public class SortedListMerge {
 
@@ -41,8 +41,8 @@ public class SortedListMerge {
 
         @Override
         public void run() {
+            int j = 0;
             for(int i=0;i<source1.length;i++) {
-                int j = 0;
                 while(source1[i]<source2[j] && j<n-1) {
                     j++;
                 }
